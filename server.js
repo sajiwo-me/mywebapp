@@ -13,6 +13,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 // our local package
 const indexRoutes = require('./routes/index');
+const authorRoutes = require('./routes/author');
 
 
 
@@ -41,7 +42,8 @@ app.use(expressLayouts);
 
 
 // setting our routes
-app.use(indexRoutes);
+app.use('/', indexRoutes);
+app.use('/authors', authorRoutes);
 
 
 
@@ -50,8 +52,8 @@ app.use(indexRoutes);
 
 // setting our database
 mongoose.connect( process.env.DATABASE_URL, {
-	useNewUrlParser: true
-	// useUnifiedTopology: true
+	useNewUrlParser: true,
+	useUnifiedTopology: true
 });
 
 const db = mongoose.connection
