@@ -14,6 +14,7 @@ const expressLayouts = require('express-ejs-layouts');
 // our local package
 const indexRoutes = require('./routes/index');
 const authorRoutes = require('./routes/author');
+const bookRoutes = require('./routes/book');
 
 
 
@@ -44,6 +45,7 @@ app.use(expressLayouts);
 // setting our routes
 app.use('/', indexRoutes);
 app.use('/authors', authorRoutes);
+app.use('/books', bookRoutes);
 
 
 

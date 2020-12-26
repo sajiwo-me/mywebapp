@@ -11,7 +11,7 @@ router
 	.get('/', async (req, res) => {
 		// const mu = await Author.find();
 		// res.json(mu)
-		res.render('authors/index', {title: "Authors", authors: await Author.find({}) })
+		res.render('authors/index', {title: "Authors", authors: await Author.find({})})
 	});
 
 router
