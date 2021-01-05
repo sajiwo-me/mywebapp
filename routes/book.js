@@ -2,8 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/book')
 
+
+
+//our middleware
+const checkToken = require('../middleware/authentic') 
+
+
+
+
 router
-	.get('/', async (req, res) => {
+	.get('/', checkToken, async (req, res) => {
 		// res.send('all books');
 		res.render('book/index', {title: 'Books', books : await Book.find({})});
 	})
